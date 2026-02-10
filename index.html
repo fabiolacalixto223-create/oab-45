@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OAB 2ª Fase - Memorização Gamificada</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>OAB 2ª Fase • Treino Relâmpago</h1>
+    <div class="topbar-right">
+      <button id="btnHome" class="ghost">Home</button>
+      <button id="btnProgress" class="ghost">Progresso</button>
+      <button id="btnMute" class="ghost">🔊 Som</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="homeScreen" class="screen active">
+      <div class="card">
+        <h2>Escolha o modo</h2>
+        <div class="mode-grid" id="modeGrid">
+          <button class="mode-btn" data-mode="ordem">Ordem Relâmpago</button>
+          <button class="mode-btn" data-mode="lacuna">Preencha o Buraco</button>
+          <button class="mode-btn" data-mode="artigoPeca">Artigo → Peça</button>
+          <button class="mode-btn" data-mode="pecaArtigo">Peça → Artigo</button>
+          <button class="mode-btn" data-mode="survival">Sobrevivência</button>
+        </div>
+
+        <div class="selectors">
+          <label for="pieceSelect">Peça (quando aplicável)</label>
+          <select id="pieceSelect"></select>
+          <label class="inline">
+            <input type="checkbox" id="timerToggle" checked />
+            Timer 60s no modo Ordem Relâmpago
+          </label>
+        </div>
+      </div>
+
+      <div class="card stats-strip" id="quickStats"></div>
+    </section>
+
+    <section id="gameScreen" class="screen">
+      <div class="card">
+        <div class="game-head">
+          <h2 id="gameTitle">Modo</h2>
+          <div id="timer" class="timer"></div>
+        </div>
+        <p id="questionPrompt" class="prompt"></p>
+        <div id="questionArea"></div>
+        <div id="feedback" class="feedback"></div>
+        <div class="game-actions">
+          <button id="btnCheck" class="primary">Verificar</button>
+          <button id="btnNext" class="ghost">Próxima</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="progressScreen" class="screen">
+      <div class="card">
+        <h2>Progresso</h2>
+        <div id="progressSummary" class="summary-grid"></div>
+      </div>
+      <div class="card">
+        <h3>Domínio por peça</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Peça</th>
+              <th>Domínio (%)</th>
+            </tr>
+          </thead>
+          <tbody id="masteryTable"></tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Conquistas</h3>
+        <ul id="achievementList" class="achievements"></ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
